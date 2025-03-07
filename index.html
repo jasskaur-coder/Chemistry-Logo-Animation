@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rive Animation</title>
+    <script src="https://unpkg.com/@rive-app/canvas@2.9.0"></script>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #1e1e1e;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        canvas {
+            border: 2px solid #ffffff;
+            border-radius: 10px;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Rive Animation Demo</h2>
+    <canvas id="riveCanvas" width="500" height="500"></canvas>
+    <button onclick="playAnimation()">Play Animation</button>
+    <button onclick="pauseAnimation()">Pause Animation</button>
+
+    <script>
+        let riveAnimation;
+        document.addEventListener("DOMContentLoaded", function() {
+            riveAnimation = new rive.Rive({
+                src: "untitled (1).riv",  
+                canvas: document.getElementById("riveCanvas"),
+                autoplay: true,
+                onLoad: () => console.log("Rive animation loaded!"),
+            });
+        });
+
+        function playAnimation() {
+            riveAnimation.play();
+        }
+        function pauseAnimation() {
+            riveAnimation.pause();
+        }
+    </script>
+</body>
+</html>
